@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#020a10">
+<title>John's Tech | Olusola Goodnews Toluwalase</title>
+<style>
+:root{--bg:#020a10;--panel:#071722;--panel2:#0a1d28;--text:#f5f8fa;--muted:#9baeb8;--green:#00e676;--line:#17313e;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,a{-webkit-tap-highlight-color:transparent}
+.container{width:min(1040px,91%);margin:auto}
+header{position:sticky;top:0;z-index:100;background:rgba(2,10,16,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-code{color:var(--green);font-size:25px;font-weight:900;line-height:1}
+.logo-text strong{display:block;font-size:15px;line-height:1.1}
+.logo-text span{display:block;font-size:10px;color:#9aabb5;margin-top:3px}
+.links{display:flex;gap:27px;font-size:12px;font-weight:800;color:#d8e2e6}
+.links a{padding:25px 0}
+.links a:hover{color:var(--green)}
+.wa-top{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--green);color:var(--green);padding:9px 13px;border-radius:9px;font-size:11px;font-weight:900;white-space:nowrap}
+.icon{width:17px;height:17px;display:inline-block;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.icon.fill{fill:currentColor;stroke:none}
+
+.hero{min-height:575px;border-bottom:1px solid var(--line);position:relative;overflow:hidden;background:#020b10}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(2,10,16,.98) 0%,rgba(2,10,16,.88) 28%,rgba(2,10,16,.48) 55%,rgba(2,10,16,.18) 100%),url("johns-tech-hero.jpg");background-size:cover;background-position:center 25%}
+.hero-copy{position:relative;z-index:3;padding:118px 0 60px;max-width:590px}
+.hello{color:var(--green);font-size:12px;font-weight:900;margin-bottom:10px;letter-spacing:.3px}
+h1{font-size:48px;line-height:1.04;letter-spacing:-1.8px;margin-bottom:10px}
+h1 span{color:var(--green)}
+.role{font-size:15px;font-weight:900;color:#dce6ea}
+.role span{color:#64757e;padding:0 4px}
+.hero-copy p{font-size:13px;color:#b9c7cd;max-width:540px;margin-top:15px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn,.small-btn,.project-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--green);border-radius:9px;padding:10px 15px;font-size:11px;font-weight:900;background:var(--green);color:#03120b;transition:.2s}
+.btn:hover,.small-btn:hover{transform:translateY(-1px)}
+.btn.dark,.small-btn.dark{background:#07131b;color:#fff;border-color:#53626a}
+.btn.dark:hover{border-color:var(--green);color:var(--green)}
+.socials{display:flex;gap:9px;margin-top:18px}
+.socials a{width:32px;height:32px;border:1px solid #52636c;border-radius:50%;display:grid;place-items:center;color:#dbe5e9}
+.socials a:hover{border-color:var(--green);color:var(--green)}
+.hero-badge{position:absolute;right:7%;bottom:35px;z-index:2;border:1px solid #234451;background:rgba(3,15,21,.78);padding:12px 14px;border-radius:12px;color:#c9d7dc;font-size:10px;backdrop-filter:blur(8px)}
+.hero-badge b{color:var(--green);display:block;font-size:11px;margin-bottom:2px}
+
+section{border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--green);font-size:11px;font-weight:900;margin-bottom:5px;letter-spacing:.2px}
+h2{font-size:28px;line-height:1.12;letter-spacing:-.8px;margin-bottom:10px}
+.lead{color:#b9c7cd;font-size:12px;max-width:520px}
+
+.about{padding:50px 0 46px;display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
+.mini-features{display:flex;gap:20px;margin-top:20px;flex-wrap:wrap}
+.mini{display:flex;align-items:center;gap:9px;color:#dbe5e9;font-size:10px;font-weight:800}
+.mini-icon{width:30px;height:30px;border:1px solid #31515f;border-radius:8px;display:grid;place-items:center;color:var(--green)}
+.code-card{background:#06131c;border:1px solid #20404d;border-radius:11px;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.24)}
+.window{height:31px;background:#091c26;border-bottom:1px solid #17313e;display:flex;align-items:center;gap:6px;padding:0 12px}
+.dot{width:8px;height:8px;border-radius:50%;display:block;background:#6b7b82}.dot.green{background:var(--green)}
+.code{padding:17px 18px 19px;font:11px/1.9 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#c7d2d7;min-height:245px}
+.code .p{color:#f0a6ff}.code .b{color:#63c6ff}.code .g{color:#62e39b}.signature{margin-top:11px;color:var(--green);font-weight:800}
+
+.projects{padding:45px 0 48px}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}
+.section-top p{color:#8fa1aa;font-size:11px}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.project{background:var(--panel);border:1px solid #173845;border-radius:12px;overflow:hidden}
+.project:hover{border-color:#2a5867}
+.project img{width:100%;height:215px;object-fit:cover;object-position:center}
+.project-info{padding:17px}
+.project h3{font-size:17px;line-height:1.15;margin-bottom:8px}
+.project p{font-size:11px;color:#9fb0b8;min-height:54px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:13px 0}
+.tag{font-size:9px;color:#b8c8ce;border:1px solid #284754;border-radius:999px;padding:4px 8px}
+.project-link{background:transparent;color:var(--green);padding:8px 11px}
+.project-link:hover{background:var(--green);color:#03120b}
+
+.skills{padding:43px 0 45px}
+.skill-list{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:23px}
+.skill{min-height:84px;text-align:center;color:#dce5e9;font-size:10px;font-weight:800;border:1px solid #173845;background:#06131c;border-radius:10px;padding:13px 5px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+.skill:hover{border-color:#2c5968;transform:translateY(-1px)}
+.skill-icon{height:27px;width:31px;display:grid;place-items:center;color:var(--green)}
+.skill-icon svg{width:27px;height:27px}
+.services{padding:43px 0 45px}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.service{border:1px solid #173845;background:#06131c;border-radius:11px;padding:19px}
+.service-icon{width:40px;height:40px;border:1px solid #28515e;border-radius:10px;display:grid;place-items:center;color:var(--green);margin-bottom:13px}
+.service h3{font-size:13px;margin-bottom:5px}
+.service p{font-size:10px;color:#9fb0b8}
+
+.contact{padding:38px 0 40px;display:grid;grid-template-columns:1.1fr .9fr .85fr;gap:25px;align-items:center}
+.contact p{font-size:11px;color:#b6c5cb;max-width:310px}
+.contact-buttons{display:grid;gap:9px}
+.contact-buttons .btn{width:100%}
+.contact-info{border-left:1px solid var(--line);padding-left:24px;font-size:10px;color:#cbd6db}
+.contact-info div{margin:9px 0;display:flex;align-items:center;gap:8px}
+.contact-info b{color:var(--green);display:grid;place-items:center}
+.follow{color:var(--green)!important;font-weight:900!important;margin-top:14px!important}
+
+.footer{padding:18px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;color:#81939c;font-size:9px}
+.footer-brand{display:flex;align-items:center;gap:8px;color:#f1f7f9}
+.footer-brand strong{font-size:10px}
+.footer-mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--green);border-radius:7px;color:var(--green);font-weight:900;font-size:12px}
+.footer-tagline{color:#81939c;margin-left:2px}
+.back-top{display:inline-flex!important;align-items:center;gap:6px;padding:8px 11px;border:1px solid var(--green);border-radius:8px;color:var(--green)!important;background:rgba(0,230,118,.07);font-size:10px!important;font-weight:900!important;visibility:visible!important;opacity:1!important}
+.back-top:hover{background:var(--green);color:#03120b!important}
+
+@media(max-width:900px){
+ .links{display:none}
+ .hero{min-height:570px}
+ .hero-bg{background-position:68% center}
+ .hero-copy{padding:100px 0 50px;max-width:610px}
+ .hero-badge{display:none}
+ .skill-list{grid-template-columns:repeat(4,1fr)}
+ .contact{grid-template-columns:1fr 1fr}
+ .contact-info{border-left:0;border-top:1px solid var(--line);padding:17px 0 0;grid-column:1/-1}
+}
+@media(max-width:650px){
+ .nav{min-height:62px}
+ .wa-top{padding:8px 10px}
+ .logo-text span{display:none}
+ .hero{min-height:620px}
+ .hero-bg{background-position:67% top}
+ .hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(2,10,16,.98) 0%,rgba(2,10,16,.68) 45%,rgba(2,10,16,.18) 100%)}
+ .hero-copy{padding:345px 0 32px}
+ h1{font-size:39px}
+ .hero-copy p{font-size:12px}
+ .about,.project-grid,.service-grid{grid-template-columns:1fr}
+ .about{gap:25px}
+ .project img{height:205px}
+ .skill-list{grid-template-columns:repeat(4,1fr)}
+ .section-top{align-items:flex-start;flex-direction:column}
+ .contact{grid-template-columns:1fr}
+ .contact-info{grid-column:auto}
+ .footer{grid-template-columns:1fr;justify-items:center;text-align:center;gap:13px}
+ .footer-brand{justify-content:center;flex-wrap:wrap}
+ .footer-copy{white-space:normal}
+ .back-top{justify-self:center}
+}
+@media(max-width:400px){
+ h1{font-size:34px}
+ .hero-copy{padding-top:350px}
+ .actions .btn{width:100%}
+ .skill-list{grid-template-columns:repeat(2,1fr)}
+ .footer-brand{flex-wrap:wrap}
+}
+</style>
+</head>
+<body id="home">
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home" aria-label="John's Tech home">
+      <span class="logo-code">&lt;/&gt;</span>
+      <span class="logo-text"><strong>John's Tech</strong><span>Web Developer | Creative Solutions</span></span>
+    </a>
+    <nav class="links" aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#services">Services</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="wa-top" href="https://wa.me/2349161135423?text=Hello%20John%27s%20Tech%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20I%27m%20interested%20in%20your%20web%20development%20services.%0A%0AI%20would%20like%20to%20discuss%20a%20website%20project%20with%20you.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-12.1 6.9L4 20l1.6-3.7A8 8 0 1 1 20 11.5Z"/><path d="M8.5 8.5c.3-.5.7-.5 1-.1l1 1.3c.2.3.2.6 0 .9l-.4.5c.7 1.1 1.6 1.8 2.8 2.3l.5-.6c.2-.3.6-.4.9-.2l1.4.7c.4.2.5.6.3 1-.4.8-1.1 1.2-1.9 1.1-3.7-.5-6.6-3.2-7.4-6.4-.2-.2-.1-.4-.2-.5Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-copy">
+      <div class="hello">● &nbsp;Hello, I'm</div>
+      <h1>Olusola Goodnews<br><span>Toluwalase</span></h1>
+      <div class="role">Web Developer <span>|</span> John's Tech</div>
+      <p>I create modern, responsive and user-friendly websites that help businesses, schools and individuals grow online. Turning ideas into powerful digital solutions.</p>
+      <div class="actions">
+        <a class="btn" href="https://wa.me/2349161135423?text=Hello%20John%27s%20Tech%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20I%27m%20interested%20in%20your%20web%20development%20services.%0A%0AI%20would%20like%20to%20discuss%20a%20website%20project%20with%20you.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-12.1 6.9L4 20l1.6-3.7A8 8 0 1 1 20 11.5Z"/><path d="M8.5 8.5c.3-.5.7-.5 1-.1l1 1.3c.2.3.2.6 0 .9l-.4.5c.7 1.1 1.6 1.8 2.8 2.3l.5-.6c.2-.3.6-.4.9-.2l1.4.7c.4.2.5.6.3 1-.4.8-1.1 1.2-1.9 1.1-3.7-.5-6.6-3.2-7.4-6.4-.2-.2-.1-.4-.2-.5Z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a class="btn dark" href="#projects">View My Projects <span>↗</span></a>
+      </div>
+      <div class="socials" aria-label="Social links">
+        <a href="#contact" aria-label="GitHub">GH</a>
+        <a href="#contact" aria-label="LinkedIn">in</a>
+        <a href="#contact" aria-label="Facebook">f</a>
+        <a href="#contact" aria-label="X">𝕏</a>
+        <a href="mailto:johnolusola1975@gmail.com" aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about">
+    <div>
+      <div class="eyebrow">About Me</div>
+      <h2>I'm a Passionate<br>Web Developer</h2>
+      <p class="lead">I'm Olusola Goodnews Toluwalase, also known as John's Tech. I specialize in creating professional websites, web applications and digital solutions that are fast, responsive and easy to use.</p>
+      <div class="mini-features">
+        <div class="mini"><span class="mini-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19h16M6 17V7l6-3 6 3v10M9 10h6M9 13h6"/></svg></span><span>Frontend &amp; Backend<br>Development</span></div>
+        <div class="mini"><span class="mini-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8 14a7 7 0 1 1 8 0c-1 .8-1.5 1.8-1.5 3h-5c0-1.2-.5-2.2-1.5-3Z"/></svg></span><span>Creative Problem<br>Solver</span></div>
+      </div>
+      <div style="margin-top:18px"><a class="btn" href="#contact">Let's Work Together <span>→</span></a></div>
+    </div>
+    <div class="code-card">
+      <div class="window"><span class="dot"></span><span class="dot"></span><span class="dot green"></span></div>
+      <div class="code">
+        <span class="p">const</span> <span class="b">developer</span> = {<br>
+        &nbsp;&nbsp;name: <span class="g">"Olusola Goodnews Toluwalase"</span>,<br>
+        &nbsp;&nbsp;brand: <span class="g">"John's Tech"</span>,<br>
+        &nbsp;&nbsp;role: <span class="g">"Web Developer"</span>,<br>
+        &nbsp;&nbsp;skills: [<span class="g">"HTML", "CSS", "JavaScript", "React", "PHP"</span>],<br>
+        &nbsp;&nbsp;passion: <span class="g">"Building great websites"</span><br>};
+        <div style="margin-top:10px;color:#39c982">// Let's build something amazing together!</div>
+        <div class="signature">John's Tech</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container projects">
+    <div class="section-top">
+      <div><div class="eyebrow">My Projects</div><h2>Featured Projects</h2><p>Here are some of the websites I've designed and developed.</p></div>
+      <a class="small-btn dark" href="#contact">Start a Project <span>→</span></a>
+    </div>
+    <div class="project-grid">
+      <article class="project">
+        <img src="school-project.jpg" alt="God's Kingdom Baptist School website preview">
+        <div class="project-info">
+          <h3>God's Kingdom<br>Baptist School Website</h3>
+          <p>A modern and responsive school website showcasing the school's vision, academics, admissions, school life and contact information.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div>
+          <a class="project-link" href="https://johnolusola1975-bit.github.io/God-s-kingdom-Baptist-School-Lagos/" target="_blank" rel="noopener noreferrer">View Website <span>↗</span></a>
+        </div>
+      </article>
+      <article class="project">
+        <img src="chicken-project.jpg" alt="Chicken Farm website preview">
+        <div class="project-info">
+          <h3>Chicken Farm Website</h3>
+          <p>A professional concept for a chicken farm business, featuring product information, quality presentation and a simple customer contact experience.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive</span></div>
+          <a class="project-link" href="#contact">Discuss Similar Website <span>→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container skills">
+    <div class="eyebrow">My Skills</div>
+    <h2>Technical Skills</h2>
+    <p class="lead">Tools and technologies I use to bring ideas to life.</p>
+    <div class="skill-list">
+      <div class="skill"><span class="skill-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18l-2 17-7 2-7-2L3 3Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 7h10l-.4 3H10l.3 2h6.1l-.8 5-3.6 1-3.6-1-.2-2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>HTML</div>
+      <div class="skill"><span class="skill-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18l-2 17-7 2-7-2L3 3Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 8h10M7.5 12h8M8 16h5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>CSS</div>
+      <div class="skill"><span class="skill-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 16v-5h3v5M13 16v-5h3v5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>JavaScript</div>
+      <div class="skill"><span class="skill-icon"><svg viewBox="0 0 24 24"><path d="M12 3c3 3 5.5 5.2 5.5 9A5.5 5.5 0 1 1 6.5 12c0-2.5 1.2-4.3 2.9-5.8-.2 2.1.6 3.3 1.8 4.1.1-2.5.2-4.6.8-7.3Z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>React</div>
+      <div class="skill"><span class="skill-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h5M8 17h8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>PHP</div>
+      <div class="skill"><span class="skill-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>MySQL</div>
+      <div class="skill"><span class="skill-icon"><svg viewBox="0 0 24 24"><path d="m7 6 5-3 5 3v5l-5 3-5-3V6Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m7 13 5 3 5-3M12 14v7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>Git</div>
+      <div class="skill"><span class="skill-icon"><svg viewBox="0 0 24 24"><path d="M5 5h6v6H5zM13 5h6v6h-6zM9 13h6v6H9z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>Figma</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container services">
+    <div class="eyebrow">What I Do</div>
+    <h2>Web Development Services</h2>
+    <p class="lead">Professional digital solutions built around your goals.</p>
+    <div class="service-grid">
+      <div class="service"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><h3>Website Development</h3><p>Modern, responsive websites for businesses, schools and personal brands.</p></div>
+      <div class="service"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="m4 5 8-2 8 2v6c0 5-3.4 8.2-8 10-4.6-1.8-8-5-8-10V5Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></div><h3>Responsive Design</h3><p>Layouts that work cleanly across phones, tablets and desktop screens.</p></div>
+      <div class="service"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M5 5h14v14H5z"/><path d="m9 9 6 6M15 9l-6 6"/></svg></div><h3>Website Improvements</h3><p>Fixes, redesigns, performance improvements and professional visual upgrades.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact">
+    <div>
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Let's Work Together</h2>
+      <p>Have a project in mind? Send a message and let's discuss what you want to build.</p>
+    </div>
+    <div class="contact-buttons">
+      <a class="btn" href="https://wa.me/2349161135423?text=Hello%20John%27s%20Tech%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20I%27m%20interested%20in%20your%20web%20development%20services.%0A%0AI%20would%20like%20to%20discuss%20a%20website%20project%20with%20you.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-12.1 6.9L4 20l1.6-3.7A8 8 0 1 1 20 11.5Z"/><path d="M8.5 8.5c.3-.5.7-.5 1-.1l1 1.3c.2.3.2.6 0 .9l-.4.5c.7 1.1 1.6 1.8 2.8 2.3l.5-.6c.2-.3.6-.4.9-.2l1.4.7c.4.2.5.6.3 1-.4.8-1.1 1.2-1.9 1.1-3.7-.5-6.6-3.2-7.4-6.4-.2-.2-.1-.4-.2-.5Z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <a class="btn dark" href="mailto:johnolusola1975@gmail.com?subject=John%27s%20Tech%20Project%20Enquiry">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+        Send Email
+      </a>
+    </div>
+    <div class="contact-info">
+      <div><b><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></b><span>johnolusola1975@gmail.com</span></div>
+      <div><b><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2 2c1.2 2.3 2.7 3.8 5 5l2-2 5 2v3c0 1.1-.9 2-2 2C10.4 20 4 13.6 4 5c0-1.1.9-2 2-2Z"/></svg></b><span>+234 916 113 5423</span></div>
+      <div><b><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.2"/></svg></b><span>Nigeria, Africa</span></div>
+      <div class="follow">Available for new website projects.</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer">
+    <div class="footer-brand">
+      <span class="footer-mark">&lt;/&gt;</span>
+      <strong>John's Tech</strong>
+      <span class="footer-tagline">Build • Design • Grow</span>
+    </div>
+    <div class="footer-copy">© 2026 John's Tech. All rights reserved.</div>
+    <a class="back-top" href="#home" aria-label="Back to top">↑ <span>Back to top</span></a>
+  </div>
+</footer>
+</body>
+</html>
